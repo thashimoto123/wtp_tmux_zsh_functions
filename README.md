@@ -9,18 +9,18 @@ Git worktree 管理ツール **wtp** と **tmux** を連携させるための Zs
 
 ## 機能
 
-- 📦 **Worktree ライフサイクル管理**
+- **Worktree ライフサイクル管理**
   - 作成 (`wa`, `wn`)
   - 移動 (`wm`)
   - 削除 (`wd`, `wdc`)
-- 🪟 **tmux 連携**
+- **tmux 連携**
   - worktree = tmux window / session
   - 既存 window があれば再利用
-- 🔍 **インタラクティブ操作**
+- **インタラクティブ操作**
   - peco によるブランチ / worktree 選択
-- 🪝 **フック機構**
+- **フック機構**
   - プロジェクト固有の前処理 / 後処理を外部ファイルに分離
-- 🔒 **安全設計**
+- **安全設計**
   - メイン worktree (`@`) の削除防止
   - 削除前の確認プロンプト
 
@@ -64,7 +64,7 @@ worktree 一覧を表示します。
 
 ### `wa [branch-name]`
 
-既存ブランチから worktree を作成します。
+既存ブランチから worktree と対応する tmux window を作成します。
 
 - 引数あり → そのブランチを使用
 - 引数なし → peco でブランチ選択
@@ -72,11 +72,11 @@ worktree 一覧を表示します。
 
 ### `wn <worktree-name>`
 
-新しいブランチと worktree を同時に作成します（`wtp add -b` を使用）。
+新しいブランチと worktree と tmux window を同時に作成します（`wtp add -b` を使用）。
 
 ### `wm`
 
-worktree に移動します。
+worktree と対応する tmux window に移動します。
 
 - peco で worktree を選択
 - 同名の tmux window が存在すればそこへ移動
@@ -84,13 +84,13 @@ worktree に移動します。
 
 ### `wd`
 
-peco で選択した worktree を削除します。
+peco で選択した worktree とブランチと対応する tmux window を削除します。
 
 - 削除前に確認あり
 - 対応する tmux window も削除
 
 ### `wdc`
-現在のディレクトリに対応する worktree を削除します。
+現在のディレクトリに対応する worktree とブランチと tmux window を削除します。
 
 - カレントディレクトリから worktree を判定
 - メイン worktree (@) は削除不可
