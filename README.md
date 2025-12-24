@@ -70,7 +70,7 @@ worktree 一覧を表示します。
 - 引数なし → peco でブランチ選択
 - tmux window / session を自動作成
 
-### `wn` <worktree-name>
+### `wn <worktree-name>`
 
 新しいブランチと worktree を同時に作成します（`wtp add -b` を使用）。
 
